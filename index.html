@@ -31,8 +31,8 @@
     <script async>
         window.onload = () => {
             let url = 'https://affirmations.dev';
-            let proxyurl = 'https://cors-anywhere.herokuapp.com/';
-            const request = new Request (proxyurl + url);
+            //let proxyurl = 'https://cors-anywhere.herokuapp.com/';
+            const request = new Request (url);
             
             let f = document.getElementById('f');
             fetch(request)
