@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #f {
+            font-size: 2rem;
+            text-align:center;
+            padding: 2rem;
+        }
+        .e {
+            animation: ei 1s forwards;
+        }
+        body {
+            background-color: black;
+        }
+        @keyframes ei {
+            0% {
+                background-color: black;
+            }
+            100% {
+                background-color: white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <p id='f'></p>
+    <script async>
+        window.onload = () => {
+            let url = 'https://affirmations.dev';
+            let proxyurl = 'https://cors-anywhere.herokuapp.com/';
+            const request = new Request (proxyurl + url);
+            
+            let f = document.getElementById('f');
+            fetch(request)
+            .then(r => r.json())
+            .then(c => f.innerHTML = c.affirmation)
+            .then(() => document.body.classList.add('e'));
+        }
+    </script>
+</body>
+</html>
