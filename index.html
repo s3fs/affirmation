@@ -38,7 +38,12 @@
             fetch(request)
             .then(r => r.json())
             .then(c => f.innerHTML = c.affirmation)
-            .then(() => document.body.classList.add('e'));
+            .then(() => document.body.classList.add('e'))
+            .catch(err => {
+               console.log(err)
+               f.innerHTML = 'Unable to fetch data. Too many requests?' 
+               document.body.classList.add('e')
+            })
         }
     </script>
 </body>
